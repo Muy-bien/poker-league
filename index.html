@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>德州朋友局 · 赛季积分榜</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-grid">
+        <div class="header-copy">
+          <p class="site-kicker">Friends Poker League</p>
+          <h1>德州朋友局 · 赛季积分榜</h1>
+          <p class="site-intro">奖池、积分、最近战报，一张桌看完。</p>
+        </div>
+        <div class="header-side">
+          <label class="season-picker" for="season-select">
+            <span>查看赛季</span>
+            <select id="season-select" aria-label="选择要查看的赛季"></select>
+          </label>
+          <div class="header-mark" aria-hidden="true">
+            <span>A</span>
+            <span>K</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container page-grid">
+      <section class="section overview-section" aria-labelledby="overview-title">
+        <div class="section-heading">
+          <h2 id="overview-title">当前赛季总览</h2>
+          <p id="season-progress">数据加载中...</p>
+        </div>
+        <div id="season-overview" class="summary-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section finance-section" aria-labelledby="finance-title">
+        <div class="section-heading">
+          <h2 id="finance-title">联赛财报</h2>
+          <p id="finance-status">正在核对本赛季账目...</p>
+        </div>
+        <div class="finance-ledger">
+          <div id="finance-summary" class="finance-summary" aria-live="polite"></div>
+          <div id="finance-allocation" class="finance-allocation"></div>
+          <div class="finance-statements-heading">
+            <div>
+              <h3>每局账单</h3>
+              <p>只统计有效牌局，饮品费不计入。</p>
+            </div>
+            <div class="battle-controls finance-controls" aria-label="每局账单分页">
+              <button id="finance-previous" class="battle-button" type="button">上一局</button>
+              <span id="finance-position" class="battle-position" aria-live="polite">- / -</span>
+              <button id="finance-next" class="battle-button" type="button">下一局</button>
+            </div>
+          </div>
+          <div id="finance-statements" class="finance-statements"></div>
+        </div>
+      </section>
+
+      <section class="section dynamics-section" aria-labelledby="dynamics-title">
+        <div class="section-heading">
+          <h2 id="dynamics-title">赛季动态看板</h2>
+        </div>
+        <div class="dynamics-grid">
+          <article class="dynamic-card movement-card">
+            <div class="dynamic-card-heading">
+              <h3>排名变化榜</h3>
+              <p id="rank-movement-meta">等待有效牌局</p>
+            </div>
+            <div id="rank-movements" class="movement-list"></div>
+          </article>
+          <article class="dynamic-card highlight-card">
+            <div class="dynamic-card-heading">
+              <h3>本局高光</h3>
+            </div>
+            <div id="latest-highlights" class="highlight-list"></div>
+          </article>
+          <article class="dynamic-card danger-card">
+            <div class="dynamic-card-heading">
+              <h3>弱鸡危险区</h3>
+              <p>参与不少于 3 次、未进前四、累计积分最低；笑归笑，榜照排。</p>
+            </div>
+            <div id="weak-danger-zone" class="danger-zone"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section honors-section" aria-labelledby="honors-title">
+        <div class="section-heading">
+          <h2 id="honors-title">赛季荣誉墙</h2>
+          <p>四项奖金荣誉加两项趣味称号，全部按有效牌局自动评选。</p>
+        </div>
+        <div id="honor-wall" class="honor-grid"></div>
+      </section>
+
+      <section class="section podium-section" aria-labelledby="top-four-title">
+        <div class="section-heading">
+          <h2 id="top-four-title">TOP 4 领奖台</h2>
+          <p id="top-four-note">按当前赛季总积分自动计算预计奖励</p>
+        </div>
+        <div class="podium-stage">
+          <div id="top-four" class="top-four-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="standings-title">
+        <div class="section-heading">
+          <h2 id="standings-title">完整积分榜</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>玩家</th>
+                <th>总积分</th>
+                <th>出勤</th>
+                <th>累计复活</th>
+                <th>累计筹码净值</th>
+                <th>当晚奖励累计</th>
+                <th id="season-reward-heading">预计赛季奖励</th>
+              </tr>
+            </thead>
+            <tbody id="standings-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="latest-game-title">
+        <div class="section-heading">
+          <h2 id="latest-game-title">最近一局战报</h2>
+          <div class="battle-toolbar" aria-label="历史战报切换">
+            <p id="latest-game-meta">按最近日期展示</p>
+            <div class="battle-controls">
+              <button id="previous-game" class="battle-button" type="button">上一局</button>
+              <span id="latest-game-position" class="battle-position" aria-live="polite">- / -</span>
+              <button id="next-game" class="battle-button" type="button">下一局</button>
+            </div>
+          </div>
+        </div>
+        <div id="game-story" class="game-story"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>玩家</th>
+                <th>筹码净值</th>
+                <th>复活次数</th>
+                <th>复活罚款</th>
+                <th>基础分</th>
+                <th>筹码奖励分</th>
+                <th>复活扣分</th>
+                <th>当晚积分</th>
+                <th>当晚奖励</th>
+              </tr>
+            </thead>
+            <tbody id="latest-game-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="rules-title">
+        <div class="section-heading">
+          <h2 id="rules-title">规则说明</h2>
+        </div>
+        <div id="rules-list" class="rules-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">不只是德州，是兄弟们的战场</div>
+    </footer>
+
+    <div id="player-profile" class="profile-shell" hidden>
+      <button class="profile-backdrop" type="button" data-profile-close aria-label="关闭玩家档案"></button>
+      <aside class="profile-drawer" aria-labelledby="profile-title" aria-modal="true" role="dialog">
+        <button class="profile-close" type="button" data-profile-close aria-label="关闭玩家档案">关闭</button>
+        <div id="profile-content"></div>
+      </aside>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
