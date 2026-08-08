@@ -43,5 +43,15 @@
     "id": "vv",
     "name": "vv",
     "avatar": "avatars/vv.jpg"
+  },
+  {
+    "id": "bailu",
+    "name": "白露",
+    "avatar": "avatars/bailu.jpg"
+  },
+  {
+    "id": "de",
+    "name": "De",
+    "avatar": "avatars/de.jpg"
   }
 ]

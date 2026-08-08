@@ -3,7 +3,7 @@
     "id": "game-001",
     "season": "2026-S1",
     "date": "2026-08-07 21:00",
-    "title": "第1局",
+    "title": "�?局",
     "dinnerCost": 174,
     "buyInPerPlayer": 100,
     "venueFee": 0,
@@ -15,6 +15,24 @@
       { "playerId": "wlx", "finalChips": -470, "rebuys": 1, "rebuyFine": 10 },
       { "playerId": "pp", "finalChips": -875, "rebuys": 0 },
       { "playerId": "vv", "finalChips": -145, "rebuys": 0 }
+    ]
+  },
+  {
+    "id": "game-002",
+    "season": "2026-S1",
+    "date": "2026-08-08 21:00",
+    "title": "�?局",
+    "dinnerCost": 350,
+    "buyInPerPlayer": 100,
+    "venueFee": 20,
+    "participants": [
+      { "playerId": "yy", "finalChips": 1455, "rebuys": 0 },
+      { "playerId": "lj", "finalChips": -225, "rebuys": 0 },
+      { "playerId": "hh", "finalChips": -155, "rebuys": 1, "rebuyFine": 10 },
+      { "playerId": "bailu", "finalChips": -435, "rebuys": 0 },
+      { "playerId": "wlx", "finalChips": -160 },
+      { "playerId": "pp", "finalChips": 35, "rebuys": 0 },
+      { "playerId": "de", "finalChips": -15, "rebuys": 0 }
     ]
   }
 ]
