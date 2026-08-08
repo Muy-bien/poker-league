@@ -30,7 +30,7 @@
       { "playerId": "lj", "finalChips": -225, "rebuys": 0 },
       { "playerId": "hh", "finalChips": -155, "rebuys": 1, "rebuyFine": 10 },
       { "playerId": "bailu", "finalChips": -435, "rebuys": 0 },
-      { "playerId": "wlx", "finalChips": -160 },
+      { "playerId": "wlx", "finalChips": -160, "rebuys": 0 },
       { "playerId": "pp", "finalChips": 35, "rebuys": 0 },
       { "playerId": "de", "finalChips": -15, "rebuys": 0 }
     ]
