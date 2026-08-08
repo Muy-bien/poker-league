@@ -24,7 +24,7 @@
     "title": "第2局",
     "dinnerCost": 350,
     "buyInPerPlayer": 100,
-    "venueFee": 20,
+    "venueFee": 0,
     "participants": [
       { "playerId": "yy", "finalChips": 1455, "rebuys": 0 },
       { "playerId": "lj", "finalChips": -225, "rebuys": 0 },
