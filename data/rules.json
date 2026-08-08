@@ -12,7 +12,7 @@
     "venueFee": 0,
     "nightRewardTotal": 300,
     "nightRewardPrizes": [170, 80, 50],
-    "seasonPoolPerGame": 50
+    "seasonPoolPerGame": 0
   },
   "chips": {
     "startingChips": 1000,
