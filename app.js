@@ -192,7 +192,7 @@ function calculateGameResult(game, playersById, rules) {
 }
 
 function compareParticipantsByChips(a, b) {
-  return b.finalChips - a.finalChips;
+  return b.finalChips - a.finalChips || a.rebuys - b.rebuys;
 }
 
 function calculateNightRanking(chipRankedParticipants) {
@@ -1785,6 +1785,7 @@ function renderRules(rules) {
       <h3>积分</h3>
       <ul>
         <li>基础分：${rules.points.rankBasePoints.join(" / ")}，第 8 名及以后 ${rules.points.rankBasePointAfterSeventh} 分。</li>
+        <li>单局先按筹码净值排序；筹码相同时复活更少者靠前。</li>
         <li>如果筹码第一复活过，排名基础分按顺延后的当晚名次计算。</li>
         <li>筹码净值为正时，每满 ${rules.chips.chipBonusStep} 加 1 分，最高 ${rules.chips.maxChipBonus} 分。</li>
         <li>复活扣分依次为 ${rules.chips.rebuyPenalties.join(" / ")}，第 4 次起每次 ${rules.chips.rebuyPenaltyAfterThird}。</li>
