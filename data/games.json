@@ -34,5 +34,24 @@
       { "playerId": "pp", "finalChips": 35, "rebuys": 0 },
       { "playerId": "de", "finalChips": -15, "rebuys": 0 }
     ]
+  },
+  {
+    "id": "game-003",
+    "season": "2026-S1",
+    "date": "2026-08-15 14:00",
+    "title": "第3局",
+    "dinnerCost": 0,
+    "buyInPerPlayer": 100,
+    "venueFee": 0,
+    "participants": [
+      { "playerId": "yy", "finalChips": 1280, "rebuys": 0 },
+      { "playerId": "lj", "finalChips": -1000, "rebuys": 0 },
+      { "playerId": "hh", "finalChips": -590, "rebuys": 2, "rebuyFine": 30 },
+      { "playerId": "kqp", "finalChips": 2395, "rebuys": 0 },
+      { "playerId": "wlx", "finalChips": 2820, "rebuys": 1, "rebuyFine": 10 },
+      { "playerId": "pp", "finalChips": -590, "rebuys": 0 },
+      { "playerId": "vv", "finalChips": -1000, "rebuys": 0 },
+      { "playerId": "lymdz", "finalChips": -795, "rebuys": 2, "rebuyFine": 30 }
+    ]
   }
 ]
