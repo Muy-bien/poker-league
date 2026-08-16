@@ -1,5 +1,20 @@
 [
   {
+    "id": "pp",
+    "name": "赢养快线",
+    "avatar": "avatars/pp.jpg"
+  },
+  {
+    "id": "vv",
+    "name": "vv",
+    "avatar": "avatars/vv.jpg"
+  },
+  {
+    "id": "xiyou",
+    "name": "XiYou   Min",
+    "avatar": "avatars/xiyou.jpg"
+  },
+  {
     "id": "yy",
     "name": "双流赌怪",
     "avatar": "avatars/yy.jpg"
@@ -25,24 +40,9 @@
     "avatar": "avatars/wlx.jpg"
   },
   {
-    "id": "xiyou",
-    "name": "XiYou   Min",
-    "avatar": "avatars/xiyou.jpg"
-  },
-  {
     "id": "lymdz",
     "name": "芦叶满汀洲",
     "avatar": "avatars/lymdz.jpg"
-  },
-  {
-    "id": "pp",
-    "name": "赢养快线",
-    "avatar": "avatars/pp.jpg"
-  },
-  {
-    "id": "vv",
-    "name": "vv",
-    "avatar": "avatars/vv.jpg"
   },
   {
     "id": "bailu",
