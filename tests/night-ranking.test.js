@@ -68,9 +68,10 @@ test("rebuying chip leader is ranked after the highest non-rebuy player for base
 
   assert.equal(rowsById.get("gou").rank, 2);
   assert.equal(rowsById.get("gou").basePoints, 10);
-  assert.equal(rowsById.get("gou").chipBonusPoints, 8);
+  assert.equal(rowsById.get("gou").finalChips, 3500);
+  assert.equal(rowsById.get("gou").chipBonusPoints, 7);
   assert.equal(rowsById.get("gou").rebuyPenaltyPoints, -2);
-  assert.equal(rowsById.get("gou").nightPoints, 16);
+  assert.equal(rowsById.get("gou").nightPoints, 15);
   assert.equal(rowsById.get("gou").nightReward, 80);
 });
 
@@ -112,4 +113,43 @@ test("equal chips ranks fewer rebuys ahead", () => {
   assert.equal(result.rows.find((row) => row.playerId === "b").rank, 3);
   assert.equal(result.rows.find((row) => row.playerId === "d").rank, 4);
   assert.equal(result.rows.find((row) => row.playerId === "a").rank, 5);
+});
+
+test("rebuy chips are deducted from displayed net chips and ranking", () => {
+  const api = loadApp();
+  const rules = readJson("rules");
+  const players = [
+    { id: "a", name: "A", avatar: "a.jpg" },
+    { id: "b", name: "B", avatar: "b.jpg" },
+    { id: "c", name: "C", avatar: "c.jpg" },
+    { id: "d", name: "D", avatar: "d.jpg" },
+    { id: "e", name: "E", avatar: "e.jpg" }
+  ];
+  const playersById = new Map(players.map((player) => [player.id, player]));
+  const result = api.calculateGameResult(
+    {
+      id: "rebuy-net-game",
+      date: "2026-09-14",
+      title: "复活扣筹码测试",
+      dinnerCost: 0,
+      buyInPerPlayer: 100,
+      venueFee: 0,
+      participants: [
+        { playerId: "a", finalChips: 800, rebuys: 1 },
+        { playerId: "b", finalChips: 400, rebuys: 0 },
+        { playerId: "c", finalChips: 100, rebuys: 0 },
+        { playerId: "d", finalChips: -200, rebuys: 0 },
+        { playerId: "e", finalChips: -400, rebuys: 0 }
+      ]
+    },
+    playersById,
+    rules
+  );
+  const rowsById = new Map(result.rows.map((row) => [row.playerId, row]));
+
+  assert.equal(rowsById.get("a").finalChips, 300);
+  assert.equal(
+    result.rows.slice(0, 2).map((row) => row.playerId).join(","),
+    "b,a"
+  );
 });

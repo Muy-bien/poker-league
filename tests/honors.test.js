@@ -40,7 +40,7 @@ const players = [
 const rules = {
   season: {
     honorPrize: 20,
-    topFourPrizePercentages: [0.5, 0.25, 0.15, 0.1]
+    topFourPrizePercentages: [0.4, 0.3, 0.2, 0.1]
   }
 };
 
@@ -173,7 +173,7 @@ test("TOP 4 pool deducts only awarded official honor prizes", () => {
 
   assert.deepEqual(
     Array.from(topFour, (stats) => rewards.get(stats.playerId)),
-    [180, 90, 54, 36]
+    [144, 108, 72, 36]
   );
 });
 
@@ -197,7 +197,7 @@ test("season payouts stay equal to an odd-valued season pool after rounding", ()
 
   assert.deepEqual(
     Array.from(topFour, (stats) => rewards.get(stats.playerId)),
-    [670, 335, 201, 133]
+    [536, 402, 268, 133]
   );
   assert.equal(rewards.has("weak"), false);
   assert.equal(paidTotal, 1419);
